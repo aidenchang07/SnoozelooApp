@@ -1,4 +1,4 @@
-package com.example.snoozelooapp.ui.theme
+package com.example.snoozelooapp.core.designsystem.theme
 
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.lightColorScheme
