@@ -12,6 +12,7 @@ activityCompose = "1.10.1"
 composeBom = "2024.09.00"
 navigationCompose = "2.9.1"
 roomRuntime = "2.7.2"
+androidxSplashScreen = "1.0.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -34,6 +35,7 @@ koin-core = { module = "io.insert-koin:koin-core" }
 kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinxSerializationJson" }
 androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "roomRuntime" }
 androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "navigationCompose" }
+androidx-splash-screen = { module = "androidx.core:core-splashscreen", version.ref = "androidxSplashScreen" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
