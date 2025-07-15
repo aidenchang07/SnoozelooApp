@@ -67,4 +67,7 @@ dependencies {
 
     // Room
     implementation(libs.androidx.room.runtime)
+
+    // Navigation
+    implementation(libs.androidx.navigation.compose)
 }
