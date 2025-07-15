@@ -1,6 +1,7 @@
 [versions]
 agp = "8.11.1"
 koin-bom = "4.0.3"
+koinAndroidxCompose = "4.0.3"
 kotlin = "2.0.21"
 coreKtx = "1.16.0"
 junit = "4.13.2"
@@ -36,6 +37,7 @@ kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serializa
 androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "roomRuntime" }
 androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "navigationCompose" }
 androidx-splash-screen = { module = "androidx.core:core-splashscreen", version.ref = "androidxSplashScreen" }
+koin-androidx-compose = { module = "io.insert-koin:koin-androidx-compose", version.ref = "koinAndroidxCompose" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
