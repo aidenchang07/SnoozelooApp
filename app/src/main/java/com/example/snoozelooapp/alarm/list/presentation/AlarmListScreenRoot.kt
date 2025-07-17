@@ -21,6 +21,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.example.snoozelooapp.R
@@ -91,8 +92,7 @@ private fun EmptyAlarmListContent(
             )
             Spacer(modifier = Modifier.height(32.dp))
             Text(
-                text = "It's empty! Add the first alarm so you\n" +
-                        "don't miss an important moment!",
+                text = stringResource(R.string.empty_alarm_list_title),
                 style = MaterialTheme.typography.labelMedium,
                 textAlign = TextAlign.Center
             )
