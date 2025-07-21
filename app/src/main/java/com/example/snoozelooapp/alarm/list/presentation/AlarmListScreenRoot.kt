@@ -117,13 +117,18 @@ fun AlarmListScreen(
                 // 無資料畫面
                 EmptyAlarmListContent()
             }
+
+            // 首頁的title
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
                     .background(color = MaterialTheme.colorScheme.surface.copy(alpha = 0.7f))
                     .padding(top = topDp + 16.dp, bottom = 24.dp),
             ) {
-                Text(text = "Your Alarms", style = MaterialTheme.typography.titleLarge)
+                Text(
+                    text = stringResource(R.string.alarm_list_title),
+                    style = MaterialTheme.typography.titleLarge
+                )
             }
         }
     }
