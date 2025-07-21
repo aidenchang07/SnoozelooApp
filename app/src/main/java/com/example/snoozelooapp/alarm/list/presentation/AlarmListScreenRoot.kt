@@ -44,14 +44,16 @@ import com.example.snoozelooapp.alarm.list.domain.Weekday
 import com.example.snoozelooapp.alarm.list.presentation.components.DateChip
 import com.example.snoozelooapp.core.designsystem.theme.SnoozelooAppTheme
 import com.example.snoozelooapp.core.extensions.noRippleClickable
+import org.koin.androidx.compose.koinViewModel
 
 /**
  * Created by AidenChang on 2025/7/15
  */
 @Composable
 fun AlarmListScreenRoot(
-//    viewModel: AlarmListViewModel = koinViewModel()
+    viewModel: AlarmListViewModel = koinViewModel()
 ) {
+    viewModel.getAlarmList() // todo: 測試用
     AlarmListScreen()
 }
 
