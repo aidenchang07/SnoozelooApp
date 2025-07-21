@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.FlowRow
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.WindowInsets
@@ -16,6 +17,8 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.systemBars
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
@@ -31,6 +34,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -53,13 +57,20 @@ import org.koin.androidx.compose.koinViewModel
 fun AlarmListScreenRoot(
     viewModel: AlarmListViewModel = koinViewModel()
 ) {
-    viewModel.getAlarmList() // todo: 測試用
-    AlarmListScreen()
+    val state = viewModel.alarmList.collectAsState()
+    AlarmListScreen(
+        state = state.value,
+        onAction = { action ->
+            viewModel.handleAction(action)
+        }
+    )
 }
 
 @OptIn(ExperimentalFoundationApi::class, ExperimentalMaterial3Api::class)
 @Composable
 fun AlarmListScreen(
+    state: List<AlarmUi>,
+    onAction: (AlarmListAction) -> Unit,
     modifier: Modifier = Modifier
 ) {
     val topDp = WindowInsets.systemBars.asPaddingValues().calculateTopPadding()
@@ -75,8 +86,7 @@ fun AlarmListScreen(
             ) {
                 Icon(
                     modifier = Modifier.noRippleClickable {
-                        // 實作這邊功能
-                        println("aiden inner Icon")
+                        onAction(AddAlarmClick)
                     },
                     imageVector = Icons.Default.Add,
                     tint = MaterialTheme.colorScheme.onPrimary,
@@ -90,17 +100,23 @@ fun AlarmListScreen(
                 .fillMaxSize()
                 .padding(horizontal = 16.dp)
         ) {
-            // 有資料畫面
-//            LazyColumn(
-//                modifier = Modifier.fillMaxSize(),
-//                contentPadding = PaddingValues(top = topDp + 30.dp + 16.dp + 24.dp)
-//            ) {
-//                items(100) { index ->
-//                    Text(text = "Alarms $index", style = MaterialTheme.typography.titleLarge)
-//                }
-//            }
-            // 無資料畫面
-            EmptyAlarmListContent()
+            if (state.isNotEmpty()) {
+                // 有資料畫面
+                LazyColumn(
+                    modifier = Modifier.fillMaxSize(),
+                    contentPadding = PaddingValues(top = topDp + 30.dp + 16.dp + 24.dp)
+                ) {
+                    items(state) {
+                        AlarmItem(
+                            alarmUi = it,
+                            onAction = onAction
+                        )
+                    }
+                }
+            } else {
+                // 無資料畫面
+                EmptyAlarmListContent()
+            }
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -115,9 +131,13 @@ fun AlarmListScreen(
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
-private fun AlarmItem() {
+private fun AlarmItem(
+    alarmUi: AlarmUi,
+    onAction: (AlarmListAction) -> Unit,
+    modifier: Modifier = Modifier
+) {
     Column(
-        modifier = Modifier.fillMaxWidth(),
+        modifier = modifier.fillMaxWidth(),
         verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
         Row(
@@ -127,7 +147,7 @@ private fun AlarmItem() {
         ) {
             Column {
                 Text(
-                    text = "Wake Up",
+                    text = alarmUi.alarm.name.ifBlank { "Alarm" },
                     style = MaterialTheme.typography.bodyMedium
                 )
                 Row(
@@ -136,44 +156,46 @@ private fun AlarmItem() {
                 ) {
                     Text(
                         modifier = Modifier.alignByBaseline(),
-                        text = "10:00",
+                        text = alarmUi.alarm.hour.toString(), // TODO: 待調整用LocalTime
                         style = MaterialTheme.typography.displayLarge
                     )
                     Text(
                         modifier = Modifier.alignByBaseline(),
-                        text = "AM",
+                        text = "AM", // TODO: 待調整用LocalTime判斷給出上下午
                         style = MaterialTheme.typography.titleLarge,
                     )
                 }
-                Text(
-                    text = "Alarm in 30min",
-                    style = MaterialTheme.typography.labelSmall,
-                    color = MaterialTheme.colorScheme.secondary
-                )
+                if (alarmUi.alarm.enable) {
+                    Text(
+                        text = "Alarm in 30min",
+                        style = MaterialTheme.typography.labelSmall,
+                        color = MaterialTheme.colorScheme.secondary
+                    )
+                }
             }
             Switch(
-                checked = false,
+                checked = alarmUi.alarm.enable,
                 onCheckedChange = {
-                    // 實作click功能
+                    onAction(ToggleClick(alarmUi.alarm.id))
                 }
             )
         }
         FlowRow(
             horizontalArrangement = Arrangement.spacedBy(5.dp),
         ) {
-            DateChip(isSelected = true, weekday = Weekday.MONDAY)
-            DateChip(isSelected = true, weekday = Weekday.TUESDAY)
-            DateChip(isSelected = true, weekday = Weekday.WEDNESDAY)
-            DateChip(isSelected = true, weekday = Weekday.THURSDAY)
-            DateChip(isSelected = true, weekday = Weekday.FRIDAY)
-            DateChip(isSelected = true, weekday = Weekday.SATURDAY)
-            DateChip(isSelected = true, weekday = Weekday.SUNDAY)
+            Weekday.entries.forEach { day ->
+                DateChip(
+                    isSelected = alarmUi.alarm.repeatDays.contains(day),
+                    weekday = day
+                )
+            }
         }
         Row(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically
         ) {
+            // todo: 待調整判斷顯示，時間夠近再顯示
             Text(
                 text = "Go to bed at 02:00AM to get 8h of sleep",
                 style = MaterialTheme.typography.labelSmall,
@@ -181,7 +203,7 @@ private fun AlarmItem() {
             )
             IconButton(
                 onClick = {
-                    // 實作click功能
+                    onAction(DeleteAlarmClick(alarmUi.alarm.id))
                 }
             ) {
                 Icon(
@@ -224,6 +246,9 @@ private fun EmptyAlarmListContent(
 @Composable
 private fun AlarmItemPreview() {
     SnoozelooAppTheme {
-        AlarmItem()
+        AlarmItem(
+            AlarmUi.default(),
+            onAction = {}
+        )
     }
 }
