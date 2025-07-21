@@ -57,7 +57,7 @@ fun DateChip(
 private fun DateChipPreview() {
     SnoozelooAppTheme {
         DateChip(
-            isSelected = false,
+            isSelected = true,
             weekday = Weekday.MONDAY
         )
     }
