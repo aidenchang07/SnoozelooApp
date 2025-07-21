@@ -239,7 +239,7 @@ private fun EmptyAlarmListContent(
             )
             Spacer(modifier = Modifier.height(32.dp))
             Text(
-                text = stringResource(R.string.empty_alarm_list_title),
+                text = stringResource(R.string.alarm_list_empty_desc),
                 style = MaterialTheme.typography.labelMedium,
                 textAlign = TextAlign.Center
             )
