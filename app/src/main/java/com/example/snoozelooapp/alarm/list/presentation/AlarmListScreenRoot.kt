@@ -40,6 +40,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.snoozelooapp.R
+import com.example.snoozelooapp.alarm.list.domain.Weekday
+import com.example.snoozelooapp.alarm.list.presentation.components.DateChip
 import com.example.snoozelooapp.core.extensions.noRippleClickable
 
 /**
@@ -153,14 +155,16 @@ private fun AlarmItem() {
                 }
             )
         }
-        FlowRow {
-            Text("Mon")
-            Text("Tue")
-            Text("Wed")
-            Text("Thu")
-            Text("Fri")
-            Text("Sat")
-            Text("Sun")
+        FlowRow(
+            horizontalArrangement = Arrangement.spacedBy(5.dp),
+        ) {
+            DateChip(isSelected = true, weekday = Weekday.MONDAY)
+            DateChip(isSelected = true, weekday = Weekday.TUESDAY)
+            DateChip(isSelected = true, weekday = Weekday.WEDNESDAY)
+            DateChip(isSelected = true, weekday = Weekday.THURSDAY)
+            DateChip(isSelected = true, weekday = Weekday.FRIDAY)
+            DateChip(isSelected = true, weekday = Weekday.SATURDAY)
+            DateChip(isSelected = true, weekday = Weekday.SUNDAY)
         }
         Row(
             modifier = Modifier.fillMaxWidth(),
