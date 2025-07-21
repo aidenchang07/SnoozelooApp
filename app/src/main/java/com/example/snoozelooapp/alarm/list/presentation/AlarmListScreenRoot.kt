@@ -42,6 +42,7 @@ import androidx.compose.ui.unit.dp
 import com.example.snoozelooapp.R
 import com.example.snoozelooapp.alarm.list.domain.Weekday
 import com.example.snoozelooapp.alarm.list.presentation.components.DateChip
+import com.example.snoozelooapp.core.designsystem.theme.SnoozelooAppTheme
 import com.example.snoozelooapp.core.extensions.noRippleClickable
 
 /**
@@ -220,5 +221,7 @@ private fun EmptyAlarmListContent(
 @Preview(showBackground = true)
 @Composable
 private fun AlarmItemPreview() {
-    AlarmItem()
+    SnoozelooAppTheme {
+        AlarmItem()
+    }
 }
