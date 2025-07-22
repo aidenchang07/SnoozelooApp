@@ -204,7 +204,10 @@ private fun AlarmItem(
             Weekday.entries.forEach { day ->
                 DateChip(
                     isSelected = alarmUi.alarm.repeatDays.contains(day),
-                    weekday = day
+                    weekday = day,
+                    onClick = {
+                        onAction(ToggleDayOfAlarm(alarmUi.alarm.id, day))
+                    }
                 )
             }
         }

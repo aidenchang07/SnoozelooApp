@@ -100,6 +100,21 @@ class AlarmListViewModel: ViewModel() {
                     }
                 }
             }
+            is ToggleDayOfAlarm -> {
+                // 切換選擇鬧鐘星期
+                _alarmList.update { oldAlarmList ->
+                    oldAlarmList.map { alarmUi ->
+                        if (alarmUi.alarm.id == action.id) {
+                            // 找到要切換的那筆，copy 一份並 toggle day
+                            val newDays = alarmUi.alarm.repeatDays.toMutableSet().apply {
+                                if (contains(action.day)) remove(action.day)
+                                else add(action.day)
+                            }
+                            alarmUi.copy(alarm = alarmUi.alarm.copy(repeatDays = newDays))
+                        } else alarmUi
+                    }
+                }
+            }
             is DeleteAlarmClick -> {
                 // 刪除鬧鐘，只保留 id 不等於 action.id 的 item
                 _alarmList.update { old ->
