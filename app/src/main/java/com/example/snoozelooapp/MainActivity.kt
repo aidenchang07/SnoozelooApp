@@ -5,7 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import com.example.snoozelooapp.alarm.list.presentation.AlarmListScreenRoot
+import com.example.snoozelooapp.alarm.presentation.list.AlarmListScreenRoot
 import com.example.snoozelooapp.core.designsystem.theme.SnoozelooAppTheme
 
 class MainActivity : ComponentActivity() {

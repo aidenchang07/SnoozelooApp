@@ -1,4 +1,4 @@
-package com.example.snoozelooapp.alarm.list.presentation
+package com.example.snoozelooapp.alarm.presentation.list
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
@@ -47,8 +47,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.snoozelooapp.R
-import com.example.snoozelooapp.alarm.list.domain.Weekday
-import com.example.snoozelooapp.alarm.list.presentation.components.DateChip
+import com.example.snoozelooapp.alarm.domain.Weekday
+import com.example.snoozelooapp.alarm.presentation.components.DateChip
 import com.example.snoozelooapp.core.designsystem.theme.SnoozelooAppTheme
 import com.example.snoozelooapp.core.extensions.DEFAULT_AM_PM_PATTERN
 import com.example.snoozelooapp.core.extensions.DEFAULT_TIME_PATTERN

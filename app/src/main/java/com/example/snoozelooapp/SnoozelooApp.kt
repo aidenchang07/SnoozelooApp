@@ -1,7 +1,7 @@
 package com.example.snoozelooapp
 
 import android.app.Application
-import com.example.snoozelooapp.alarm.list.presentation.di.alarmModule
+import com.example.snoozelooapp.alarm.presentation.di.alarmModule
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.SupervisorJob
 import org.koin.android.ext.koin.androidContext

@@ -1,4 +1,4 @@
-package com.example.snoozelooapp.alarm.list.presentation.components
+package com.example.snoozelooapp.alarm.presentation.components
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -12,7 +12,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.snoozelooapp.alarm.list.domain.Weekday
+import com.example.snoozelooapp.alarm.domain.Weekday
 import com.example.snoozelooapp.core.designsystem.theme.LocalChipTheme
 import com.example.snoozelooapp.core.designsystem.theme.SnoozelooAppTheme
 

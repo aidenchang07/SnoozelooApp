@@ -1,6 +1,6 @@
-package com.example.snoozelooapp.alarm.list.presentation.di
+package com.example.snoozelooapp.alarm.presentation.di
 
-import com.example.snoozelooapp.alarm.list.presentation.AlarmListViewModel
+import com.example.snoozelooapp.alarm.presentation.list.AlarmListViewModel
 import org.koin.core.module.dsl.viewModelOf
 import org.koin.dsl.module
 

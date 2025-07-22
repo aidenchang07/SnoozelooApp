@@ -1,6 +1,6 @@
-package com.example.snoozelooapp.alarm.list.data
+package com.example.snoozelooapp.alarm.data
 
-import com.example.snoozelooapp.alarm.list.domain.Weekday
+import com.example.snoozelooapp.alarm.domain.Weekday
 import java.time.LocalTime
 import java.util.UUID
 

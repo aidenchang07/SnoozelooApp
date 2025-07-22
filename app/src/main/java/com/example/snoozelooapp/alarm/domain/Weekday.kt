@@ -1,4 +1,4 @@
-package com.example.snoozelooapp.alarm.list.domain
+package com.example.snoozelooapp.alarm.domain
 
 /**
  * Created by AidenChang on 2025/7/20

@@ -1,9 +1,9 @@
-package com.example.snoozelooapp.alarm.list.presentation
+package com.example.snoozelooapp.alarm.presentation.list
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.snoozelooapp.alarm.list.data.Alarm
-import com.example.snoozelooapp.alarm.list.domain.Weekday
+import com.example.snoozelooapp.alarm.data.Alarm
+import com.example.snoozelooapp.alarm.domain.Weekday
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
