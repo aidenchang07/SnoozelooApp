@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <style name="Theme.SnoozelooApp" parent="android:Theme.Material.Light.NoActionBar" />
+    <style name="Theme.SnoozelooApp.Splash" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/splash_blue</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/splash_alarm</item>
+    </style>
 </resources>
