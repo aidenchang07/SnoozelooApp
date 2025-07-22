@@ -9,6 +9,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import java.time.LocalTime
 
 /**
  * Created by AidenChang on 2025/7/15
@@ -29,8 +30,7 @@ class AlarmListViewModel: ViewModel() {
                     AlarmUi(
                         Alarm(
                             name = "Wake Up1",
-                            hour = 10,
-                            minute = 0,
+                            triggerTime = LocalTime.of(7,0),
                             enable = false,
                             repeatDays = setOf(Weekday.MONDAY, Weekday.TUESDAY),
                             volume = 4,
@@ -41,8 +41,7 @@ class AlarmListViewModel: ViewModel() {
                     AlarmUi(
                         Alarm(
                             name = "Wake Up2",
-                            hour = 12,
-                            minute = 10,
+                            triggerTime = LocalTime.of(12,10),
                             enable = false,
                             repeatDays = setOf(Weekday.MONDAY, Weekday.TUESDAY, Weekday.WEDNESDAY),
                             volume = 6,
@@ -53,8 +52,7 @@ class AlarmListViewModel: ViewModel() {
                     AlarmUi(
                         Alarm(
                             name = "Wake Up3",
-                            hour = 16,
-                            minute = 47,
+                            triggerTime = LocalTime.of(16,47),
                             enable = true,
                             repeatDays = setOf(Weekday.TUESDAY),
                             volume = 8,
@@ -65,8 +63,7 @@ class AlarmListViewModel: ViewModel() {
                     AlarmUi(
                         Alarm(
                             name = "Wake Up4",
-                            hour = 16,
-                            minute = 47,
+                            triggerTime = LocalTime.of(16,47),
                             enable = true,
                             repeatDays = setOf(Weekday.TUESDAY),
                             volume = 8,

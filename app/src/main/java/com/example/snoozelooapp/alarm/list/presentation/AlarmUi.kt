@@ -2,6 +2,7 @@ package com.example.snoozelooapp.alarm.list.presentation
 
 import com.example.snoozelooapp.alarm.list.data.Alarm
 import com.example.snoozelooapp.alarm.list.domain.Weekday
+import java.time.LocalTime
 import java.util.UUID
 
 /**
@@ -17,8 +18,7 @@ data class AlarmUi(
                 // 隨機產生 id，也可以自己指定
                 id = UUID.randomUUID().toString(),
                 name = "預設鬧鐘",
-                hour = 8,
-                minute = 0,
+                triggerTime = LocalTime.of(7, 10),
                 enable = true,
                 repeatDays = setOf(Weekday.MONDAY, Weekday.WEDNESDAY, Weekday.FRIDAY),
                 volume = 5,

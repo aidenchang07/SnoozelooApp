@@ -51,6 +51,7 @@ import com.example.snoozelooapp.alarm.list.domain.Weekday
 import com.example.snoozelooapp.alarm.list.presentation.components.DateChip
 import com.example.snoozelooapp.core.designsystem.theme.SnoozelooAppTheme
 import com.example.snoozelooapp.core.extensions.noRippleClickable
+import com.example.snoozelooapp.core.extensions.toFormattedString
 import org.koin.androidx.compose.koinViewModel
 
 /**
@@ -173,7 +174,7 @@ private fun AlarmItem(
                 ) {
                     Text(
                         modifier = Modifier.alignByBaseline(),
-                        text = alarmUi.alarm.hour.toString(), // TODO: 待調整用LocalTime
+                        text = alarmUi.alarm.triggerTime.toFormattedString(),
                         style = MaterialTheme.typography.displayLarge
                     )
                     Text(

@@ -1,6 +1,7 @@
 package com.example.snoozelooapp.alarm.list.data
 
 import com.example.snoozelooapp.alarm.list.domain.Weekday
+import java.time.LocalTime
 import java.util.UUID
 
 /**
@@ -9,8 +10,7 @@ import java.util.UUID
 data class Alarm(
     val id: String = UUID.randomUUID().toString(),
     val name: String,
-    val hour: Int,
-    val minute: Int,
+    val triggerTime: LocalTime,
     val enable: Boolean,
     val repeatDays: Set<Weekday>,
     val volume: Int,
