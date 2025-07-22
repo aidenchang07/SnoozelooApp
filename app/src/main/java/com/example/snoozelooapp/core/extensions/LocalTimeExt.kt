@@ -8,7 +8,13 @@ import java.time.format.DateTimeFormatter
  */
 
 /** 預設時間格式：24 小時制，顯示到分鐘 */
-private const val DEFAULT_TIME_PATTERN = "HH:mm"
+const val DEFAULT_TIME_PATTERN = "HH:mm"
+/**
+ * 取得 LocalTime 的 AM/PM 標記。
+ *
+ * 依預設裝置語系回傳相對應的上午/下午字串，
+ * 例如在 en_US 下回傳 "AM" 或 "PM"；在 zh_TW 下回傳 "上午" 或 "下午"。
+ */
 const val DEFAULT_AM_PM_PATTERN = "a"
 
 /**
@@ -17,7 +23,7 @@ const val DEFAULT_AM_PM_PATTERN = "a"
  * @param pattern Java DateTimeFormatter 風格的時間格式字串，如 "HH:mm", "hh:mm a", "HH:mm:ss"…
  * @return 格式化後的時間字串
  */
-fun LocalTime.toFormattedString(pattern: String = DEFAULT_TIME_PATTERN): String {
+fun LocalTime.toFormattedString(pattern: String): String {
     val formatter = DateTimeFormatter.ofPattern(pattern)
     return this.format(formatter)
 }

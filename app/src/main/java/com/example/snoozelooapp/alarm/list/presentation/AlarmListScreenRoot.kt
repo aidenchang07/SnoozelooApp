@@ -51,6 +51,7 @@ import com.example.snoozelooapp.alarm.list.domain.Weekday
 import com.example.snoozelooapp.alarm.list.presentation.components.DateChip
 import com.example.snoozelooapp.core.designsystem.theme.SnoozelooAppTheme
 import com.example.snoozelooapp.core.extensions.DEFAULT_AM_PM_PATTERN
+import com.example.snoozelooapp.core.extensions.DEFAULT_TIME_PATTERN
 import com.example.snoozelooapp.core.extensions.noRippleClickable
 import com.example.snoozelooapp.core.extensions.toFormattedString
 import org.koin.androidx.compose.koinViewModel
@@ -175,7 +176,7 @@ private fun AlarmItem(
                 ) {
                     Text(
                         modifier = Modifier.alignByBaseline(),
-                        text = alarmUi.alarm.triggerTime.toFormattedString(),
+                        text = alarmUi.alarm.triggerTime.toFormattedString(DEFAULT_TIME_PATTERN),
                         style = MaterialTheme.typography.displayLarge
                     )
                     Text(
