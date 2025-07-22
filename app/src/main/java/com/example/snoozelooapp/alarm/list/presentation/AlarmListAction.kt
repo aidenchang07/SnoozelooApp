@@ -9,6 +9,6 @@ import com.example.snoozelooapp.alarm.list.domain.Weekday
 interface AlarmListAction
 
 object AddAlarmClick: AlarmListAction
-data class ToggleClick(val id: String): AlarmListAction
+data class ToggleSwitchClick(val id: String): AlarmListAction
 data class ToggleDayOfAlarm(val id: String, val day: Weekday): AlarmListAction
 data class DeleteAlarmClick(val id: String): AlarmListAction

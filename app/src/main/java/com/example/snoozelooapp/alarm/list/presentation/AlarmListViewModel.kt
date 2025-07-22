@@ -84,7 +84,7 @@ class AlarmListViewModel: ViewModel() {
             is AddAlarmClick -> {
                 // todo: 新增鬧鐘
             }
-            is ToggleClick -> {
+            is ToggleSwitchClick -> {
                 // 切換鬧鐘狀態
                 _alarmList.update { old ->
                     old.map {
