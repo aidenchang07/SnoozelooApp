@@ -79,7 +79,6 @@ fun AlarmListScreen(
 ) {
     val topDp = WindowInsets.systemBars.asPaddingValues().calculateTopPadding()
     val bottomDp = WindowInsets.navigationBars.asPaddingValues().calculateBottomPadding()
-    println("aiden bottomDp: $bottomDp")
     Scaffold(
         modifier = modifier.fillMaxSize(),
         floatingActionButtonPosition = FabPosition.Center,
