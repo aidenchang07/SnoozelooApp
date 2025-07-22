@@ -9,6 +9,7 @@ import java.time.format.DateTimeFormatter
 
 /** 預設時間格式：24 小時制，顯示到分鐘 */
 private const val DEFAULT_TIME_PATTERN = "HH:mm"
+const val DEFAULT_AM_PM_PATTERN = "a"
 
 /**
  * 將 [LocalTime] 依照指定的 pattern 轉成字串，預設為 "HH:mm"。

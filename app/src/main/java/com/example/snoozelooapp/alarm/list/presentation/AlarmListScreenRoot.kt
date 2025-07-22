@@ -50,6 +50,7 @@ import com.example.snoozelooapp.R
 import com.example.snoozelooapp.alarm.list.domain.Weekday
 import com.example.snoozelooapp.alarm.list.presentation.components.DateChip
 import com.example.snoozelooapp.core.designsystem.theme.SnoozelooAppTheme
+import com.example.snoozelooapp.core.extensions.DEFAULT_AM_PM_PATTERN
 import com.example.snoozelooapp.core.extensions.noRippleClickable
 import com.example.snoozelooapp.core.extensions.toFormattedString
 import org.koin.androidx.compose.koinViewModel
@@ -179,7 +180,7 @@ private fun AlarmItem(
                     )
                     Text(
                         modifier = Modifier.alignByBaseline(),
-                        text = "AM", // TODO: 待調整用LocalTime判斷給出上下午
+                        text = alarmUi.alarm.triggerTime.toFormattedString(DEFAULT_AM_PM_PATTERN),
                         style = MaterialTheme.typography.titleLarge,
                     )
                 }
