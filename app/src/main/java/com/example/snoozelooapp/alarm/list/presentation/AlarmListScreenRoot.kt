@@ -15,6 +15,7 @@ import androidx.compose.foundation.layout.asPaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.navigationBars
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.systemBars
 import androidx.compose.foundation.lazy.LazyColumn
@@ -40,6 +41,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
@@ -76,6 +78,8 @@ fun AlarmListScreen(
     modifier: Modifier = Modifier
 ) {
     val topDp = WindowInsets.systemBars.asPaddingValues().calculateTopPadding()
+    val bottomDp = WindowInsets.navigationBars.asPaddingValues().calculateBottomPadding()
+    println("aiden bottomDp: $bottomDp")
     Scaffold(
         modifier = modifier.fillMaxSize(),
         floatingActionButtonPosition = FabPosition.Center,
@@ -106,7 +110,10 @@ fun AlarmListScreen(
                 // 有資料畫面
                 LazyColumn(
                     modifier = Modifier.fillMaxSize(),
-                    contentPadding = PaddingValues(top = topDp + 30.dp + 16.dp + 24.dp),
+                    contentPadding = PaddingValues(
+                        top = topDp + 30.dp + 16.dp + 24.dp,
+                        bottom = bottomDp + 16.dp
+                    ),
                     verticalArrangement = Arrangement.spacedBy(16.dp),
                 ) {
                     items(state) {
