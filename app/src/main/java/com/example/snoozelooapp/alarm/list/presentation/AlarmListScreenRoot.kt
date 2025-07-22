@@ -87,7 +87,7 @@ fun AlarmListScreen(
                 shape = CircleShape,
                 containerColor = MaterialTheme.colorScheme.primary,
                 elevation = FloatingActionButtonDefaults.elevation(0.dp),
-                onClick = {}
+                onClick = {} // 這裡不使用
             ) {
                 Icon(
                     modifier = Modifier.noRippleClickable {
