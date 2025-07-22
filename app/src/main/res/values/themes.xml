@@ -6,5 +6,7 @@
         <item name="windowSplashScreenBackground">@color/splash_blue</item>
         <!-- Logo 圖示 -->
         <item name="windowSplashScreenAnimatedIcon">@drawable/splash_alarm</item>
+        <!-- SplashScreen結束後更換主題（注意：需搭配installSplashScreen()才有效果） -->
+        <item name="postSplashScreenTheme">@style/Theme.SnoozelooApp</item>
     </style>
 </resources>
