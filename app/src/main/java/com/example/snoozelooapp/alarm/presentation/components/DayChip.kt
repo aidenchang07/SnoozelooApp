@@ -20,7 +20,7 @@ import com.example.snoozelooapp.core.designsystem.theme.SnoozelooAppTheme
  * Created by AidenChang on 2025/7/20
  */
 @Composable
-fun DateChip(
+fun DayChip(
     weekday: Weekday,
     isSelected: Boolean,
     onClick: () -> Unit = {},
@@ -56,7 +56,7 @@ fun DateChip(
 @Composable
 private fun DateChipPreview() {
     SnoozelooAppTheme {
-        DateChip(
+        DayChip(
             isSelected = true,
             weekday = Weekday.MONDAY
         )

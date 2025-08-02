@@ -48,7 +48,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.snoozelooapp.R
 import com.example.snoozelooapp.alarm.domain.Weekday
-import com.example.snoozelooapp.alarm.presentation.components.DateChip
+import com.example.snoozelooapp.alarm.presentation.components.DayChip
 import com.example.snoozelooapp.core.designsystem.theme.SnoozelooAppTheme
 import com.example.snoozelooapp.core.extensions.DEFAULT_AM_PM_PATTERN
 import com.example.snoozelooapp.core.extensions.DEFAULT_TIME_PATTERN
@@ -204,7 +204,7 @@ private fun AlarmItem(
             horizontalArrangement = Arrangement.spacedBy(5.dp),
         ) {
             Weekday.entries.forEach { day ->
-                DateChip(
+                DayChip(
                     isSelected = alarmUi.alarm.repeatDays.contains(day),
                     weekday = day,
                     onClick = {
