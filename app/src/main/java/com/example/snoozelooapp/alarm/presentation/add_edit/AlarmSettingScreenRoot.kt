@@ -1,12 +1,14 @@
 package com.example.snoozelooapp.alarm.presentation.add_edit
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.asPaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.navigationBars
 import androidx.compose.foundation.layout.padding
@@ -51,8 +53,8 @@ private fun AlarmSettingScreen(
             .background(color = MaterialTheme.colorScheme.surface),
     ) {
         AppBar(
-            onLeftClick = {},
-            onRightClick = {},
+            onLeftClick = {}, // TODO: 待加入click
+            onRightClick = {}, // TODO: 待加入click
             buttonText = stringResource(R.string.app_bar_save)
         )
         Spacer(modifier = Modifier.height(24.dp))
@@ -82,6 +84,28 @@ private fun AlarmSettingScreen(
             }
         }
         Spacer(modifier = Modifier.height(16.dp))
+
+        // 鬧鐘選擇顯示
+        AlarmItemContainer {
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(16.dp),
+                horizontalArrangement = Arrangement.spacedBy(16.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Text(
+                    text = stringResource(R.string.alarm_name_title),
+                    style = MaterialTheme.typography.bodyMedium
+                )
+                Spacer(modifier = Modifier.weight(1f))
+                Text(
+                    text = "test", // TODO: 待加入data model
+                    style = MaterialTheme.typography.labelSmall,
+                    color = MaterialTheme.colorScheme.secondary,
+                )
+            }
+        }
     }
 }
 
