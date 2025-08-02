@@ -3,6 +3,8 @@ package com.example.snoozelooapp.alarm.presentation.add_edit
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
+import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.WindowInsets
@@ -23,7 +25,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.snoozelooapp.R
+import com.example.snoozelooapp.alarm.domain.Weekday
 import com.example.snoozelooapp.alarm.presentation.components.AppBar
+import com.example.snoozelooapp.alarm.presentation.components.DayChip
 import com.example.snoozelooapp.core.components.AlarmItemContainer
 import com.example.snoozelooapp.core.components.InputTimeTextField
 import com.example.snoozelooapp.core.designsystem.theme.SnoozelooAppTheme
@@ -36,6 +40,7 @@ fun AlarmSettingScreenRoot() {
     AlarmSettingScreen()
 }
 
+@OptIn(ExperimentalLayoutApi::class)
 @Composable
 private fun AlarmSettingScreen(
     modifier: Modifier = Modifier
@@ -104,6 +109,32 @@ private fun AlarmSettingScreen(
                     style = MaterialTheme.typography.labelSmall,
                     color = MaterialTheme.colorScheme.secondary,
                 )
+            }
+        }
+        Spacer(modifier = Modifier.height(16.dp))
+
+        // 星期選擇顯示
+        AlarmItemContainer {
+            Column(
+                modifier = Modifier
+                    .padding(16.dp)
+            ) {
+                Text(
+                    text = stringResource(R.string.repeat_title),
+                    style = MaterialTheme.typography.bodyMedium
+                )
+                Spacer(modifier = Modifier.height(10.dp))
+                FlowRow(
+                    horizontalArrangement = Arrangement.spacedBy(5.dp),
+                ) {
+                    Weekday.entries.forEach { day ->
+                        DayChip(
+                            isSelected = false, // TODO: 待調整
+                            weekday = day,
+                            onClick = {} // TODO: 待調整
+                        )
+                    }
+                }
             }
         }
     }
