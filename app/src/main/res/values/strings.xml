@@ -2,4 +2,5 @@
     <string name="app_name">SnoozelooApp</string>
     <string name="alarm_list_title">Your Alarms</string>
     <string name="alarm_list_empty_desc">It\'s empty! Add the first alarm so you don\'t miss an important moment!</string>
+    <string name="app_bar_save">Save</string>
 </resources>
