@@ -1,7 +1,6 @@
 package com.example.snoozelooapp.alarm.presentation.add_edit
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
@@ -17,6 +16,8 @@ import androidx.compose.foundation.layout.navigationBars
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.systemBars
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Slider
+import androidx.compose.material3.SliderDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -166,6 +167,25 @@ private fun AlarmSettingScreen(
                         text = "test", // TODO: 待加入data model
                         style = MaterialTheme.typography.labelSmall,
                         color = MaterialTheme.colorScheme.secondary,
+                    )
+                }
+            }
+
+            // 音量顯示
+            AlarmItemContainer {
+                Column(
+                    modifier = Modifier.padding(16.dp)
+                ) {
+                    Text(
+                        text = stringResource(R.string.alarm_volume_title),
+                        style = MaterialTheme.typography.bodyMedium
+                    )
+                    Slider(
+                        value = 0.5f, // TODO: 待調整
+                        onValueChange = {
+                            // TODO: 待調整
+                        },
+                        colors = SliderDefaults.colors()
                     )
                 }
             }
