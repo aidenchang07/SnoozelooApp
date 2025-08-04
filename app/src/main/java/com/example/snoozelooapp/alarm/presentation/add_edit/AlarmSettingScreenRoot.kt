@@ -64,75 +64,77 @@ private fun AlarmSettingScreen(
         )
         Spacer(modifier = Modifier.height(24.dp))
 
-        // 時間輸入框
-        AlarmItemContainer {
-            Row(
-                modifier = Modifier
-                    .padding(24.dp),
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                InputTimeTextField(
-                    modifier = Modifier.weight(1f),
-                    text = "" // TODO: 待加入data model
-                )
-                Text(
-                    modifier = Modifier.padding(horizontal = 10.dp),
-                    text = ":",
-                    style = MaterialTheme.typography.titleLarge,
-                    color = MaterialTheme.colorScheme.secondary,
-                    fontSize = 52.sp
-                )
-                InputTimeTextField(
-                    modifier = Modifier.weight(1f),
-                    text = "" // TODO: 待加入data model
-                )
-            }
-        }
-        Spacer(modifier = Modifier.height(16.dp))
-
-        // 鬧鐘選擇顯示
-        AlarmItemContainer {
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(16.dp),
-                horizontalArrangement = Arrangement.spacedBy(16.dp),
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Text(
-                    text = stringResource(R.string.alarm_name_title),
-                    style = MaterialTheme.typography.bodyMedium
-                )
-                Spacer(modifier = Modifier.weight(1f))
-                Text(
-                    text = "test", // TODO: 待加入data model
-                    style = MaterialTheme.typography.labelSmall,
-                    color = MaterialTheme.colorScheme.secondary,
-                )
-            }
-        }
-        Spacer(modifier = Modifier.height(16.dp))
-
-        // 星期選擇顯示
-        AlarmItemContainer {
-            Column(
-                modifier = Modifier
-                    .padding(16.dp)
-            ) {
-                Text(
-                    text = stringResource(R.string.repeat_title),
-                    style = MaterialTheme.typography.bodyMedium
-                )
-                Spacer(modifier = Modifier.height(10.dp))
-                FlowRow(
-                    horizontalArrangement = Arrangement.spacedBy(5.dp),
+        Column(
+            verticalArrangement = Arrangement.spacedBy(16.dp)
+        ) {
+            // 時間輸入框
+            AlarmItemContainer {
+                Row(
+                    modifier = Modifier
+                        .padding(24.dp),
+                    verticalAlignment = Alignment.CenterVertically
                 ) {
-                    Weekday.entries.forEach { day ->
-                        DayChip(
-                            isSelected = false, // TODO: 待調整
-                            weekday = day,
-                            onClick = {} // TODO: 待調整
-                        )
+                    InputTimeTextField(
+                        modifier = Modifier.weight(1f),
+                        text = "" // TODO: 待加入data model
+                    )
+                    Text(
+                        modifier = Modifier.padding(horizontal = 10.dp),
+                        text = ":",
+                        style = MaterialTheme.typography.titleLarge,
+                        color = MaterialTheme.colorScheme.secondary,
+                        fontSize = 52.sp
+                    )
+                    InputTimeTextField(
+                        modifier = Modifier.weight(1f),
+                        text = "" // TODO: 待加入data model
+                    )
+                }
+            }
+
+            // 鬧鐘選擇顯示
+            AlarmItemContainer {
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(16.dp),
+                    horizontalArrangement = Arrangement.spacedBy(16.dp),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Text(
+                        text = stringResource(R.string.alarm_name_title),
+                        style = MaterialTheme.typography.bodyMedium
+                    )
+                    Spacer(modifier = Modifier.weight(1f))
+                    Text(
+                        text = "test", // TODO: 待加入data model
+                        style = MaterialTheme.typography.labelSmall,
+                        color = MaterialTheme.colorScheme.secondary,
+                    )
+                }
+            }
+
+            // 星期選擇顯示
+            AlarmItemContainer {
+                Column(
+                    modifier = Modifier
+                        .padding(16.dp)
+                ) {
+                    Text(
+                        text = stringResource(R.string.repeat_title),
+                        style = MaterialTheme.typography.bodyMedium
+                    )
+                    Spacer(modifier = Modifier.height(10.dp))
+                    FlowRow(
+                        horizontalArrangement = Arrangement.spacedBy(5.dp),
+                    ) {
+                        Weekday.entries.forEach { day ->
+                            DayChip(
+                                isSelected = false, // TODO: 待調整
+                                weekday = day,
+                                onClick = {} // TODO: 待調整
+                            )
+                        }
                     }
                 }
             }
