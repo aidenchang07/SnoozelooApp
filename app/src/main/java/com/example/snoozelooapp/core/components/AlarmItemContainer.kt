@@ -1,10 +1,10 @@
 package com.example.snoozelooapp.core.components
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -19,18 +19,17 @@ import com.example.snoozelooapp.core.designsystem.theme.SnoozelooAppTheme
 @Composable
 fun AlarmItemContainer(
     modifier: Modifier = Modifier,
+    onClick: () -> Unit = {},
     content: @Composable () -> Unit
 ) {
-    Surface(
+    Box(
         modifier = modifier
             .fillMaxWidth()
             .clip(RoundedCornerShape(10.dp))
+            .background(color = Color.White)
+            .clickable(onClick = onClick)
     ) {
-        Box(
-            modifier = Modifier.background(color = Color.White)
-        ) {
-            content()
-        }
+        content()
     }
 }
 

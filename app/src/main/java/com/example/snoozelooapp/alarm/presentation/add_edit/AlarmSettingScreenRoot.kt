@@ -94,7 +94,11 @@ private fun AlarmSettingScreen(
             }
 
             // 鬧鐘選擇顯示
-            AlarmItemContainer {
+            AlarmItemContainer(
+                onClick = {
+                    // TODO: 待調整
+                }
+            ) {
                 Row(
                     modifier = Modifier
                         .fillMaxWidth()
@@ -142,10 +146,9 @@ private fun AlarmSettingScreen(
 
             // 鈴聲選擇顯示
             AlarmItemContainer(
-                modifier = Modifier
-                    .clickable {
-                        // TODO: 待調整
-                    }
+                onClick = {
+                    // TODO: 待調整
+                }
             ) {
                 Row(
                     modifier = Modifier
