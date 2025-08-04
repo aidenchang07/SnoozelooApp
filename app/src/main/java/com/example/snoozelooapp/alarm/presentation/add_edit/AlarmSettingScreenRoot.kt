@@ -1,6 +1,7 @@
 package com.example.snoozelooapp.alarm.presentation.add_edit
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
@@ -136,6 +137,33 @@ private fun AlarmSettingScreen(
                             )
                         }
                     }
+                }
+            }
+
+            // 鈴聲選擇顯示
+            AlarmItemContainer(
+                modifier = Modifier
+                    .clickable {
+                        // TODO: 待調整
+                    }
+            ) {
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(16.dp),
+                    horizontalArrangement = Arrangement.spacedBy(16.dp),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Text(
+                        text = stringResource(R.string.alarm_ringtone_title),
+                        style = MaterialTheme.typography.bodyMedium
+                    )
+                    Spacer(modifier = Modifier.weight(1f))
+                    Text(
+                        text = "test", // TODO: 待加入data model
+                        style = MaterialTheme.typography.labelSmall,
+                        color = MaterialTheme.colorScheme.secondary,
+                    )
                 }
             }
         }

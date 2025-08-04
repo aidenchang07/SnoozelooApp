@@ -5,4 +5,5 @@
     <string name="app_bar_save">Save</string>
     <string name="alarm_name_title">Alarm Name</string>
     <string name="repeat_title">Repeat</string>
+    <string name="alarm_ringtone_title">Alarm ringtone</string>
 </resources>
