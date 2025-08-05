@@ -18,6 +18,7 @@ import androidx.compose.foundation.layout.systemBars
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Slider
 import androidx.compose.material3.SliderDefaults
+import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -186,6 +187,28 @@ private fun AlarmSettingScreen(
                             // TODO: 待調整
                         },
                         colors = SliderDefaults.colors()
+                    )
+                }
+            }
+
+            // 振動開關顯示
+            AlarmItemContainer {
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 16.dp),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Text(
+                        text = stringResource(R.string.alarm_vibrate_title), // TODO: 待調整
+                        style = MaterialTheme.typography.bodyMedium
+                    )
+                    Switch(
+                        checked = false, // TODO: 待調整
+                        onCheckedChange = {
+                            // TODO: 待調整
+                        }
                     )
                 }
             }
